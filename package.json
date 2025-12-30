@@ -1,0 +1,12 @@
+{
+  "name": "productivity-tracker",
+  "version": "1.0.0",
+  "description": "Free productivity tracker with time analytics",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s ."
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}
