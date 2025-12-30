@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /private/
-
-Sitemap: https://productivity-tracker-kappa.vercel.app/sitemap.xml
