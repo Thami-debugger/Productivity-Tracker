@@ -1,0 +1,12 @@
+Project Showcase: Productivity Tracker
+Project Name: Productivity Tracker & Time Analytics
+
+What it does: A private, browser-based tool that helps users track daily tasks and visualize completion patterns. It analyzes "Peak Productivity" hours to help users optimize their schedules without requiring an account or external tracking.
+
+Tech Stack: HTML5, CSS3 (Mobile-First Design), JavaScript (Local Storage API), and FontAwesome.
+
+Biggest Challenge: Managing the Serverless Function size limit (250 MB) during deployment and implementing a "NoIndex" privacy strategy to ensure user dashboards remain hidden from public search engines like Google.
+
+Link: https://productivity-tracker-vm4c.vercel.app
+
+Tone: Professional yet Insightful.
