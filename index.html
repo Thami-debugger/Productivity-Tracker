@@ -8,9 +8,6 @@
     <meta name="keywords" content="productivity tracker, task management, time analytics, habit tracking, daily schedule, task completion patterns, free productivity tool, time management app">
     <meta name="author" content="Productivity Tracker">
     
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="lpgOqVca5sBG-p8FFpw3YaXktCgH-q9zUnu0KrsIxto" />
-    <meta name="google-site-verification" content="0lcnmrrt4Dyiydc7s5Ns-XAYgtdgiTNBVd3IblZ7TCc" />
     <!-- Open Graph tags for social sharing -->
     <meta property="og:title" content="Productivity Tracker - Analyze Your Daily Task Patterns">
     <meta property="og:description" content="Free tool to track when you complete tasks and optimize your daily productivity schedule">
@@ -648,35 +645,6 @@
             margin-left: 0;
         }
         
-        /* Sitemap Section */
-        .sitemap-section {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        
-        .sitemap-button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .sitemap-button:hover {
-            background: var(--secondary);
-        }
-        
         /* Desktop Improvements */
         @media (min-width: 768px) {
             body {
@@ -954,17 +922,6 @@
         </div>
         
         <div class="content-section" id="info-section">
-            <div class="sitemap-section">
-                <h2>Google Sitemap Ready</h2>
-                <p>Your sitemap has been generated and is ready for Google Search Console.</p>
-                <button class="sitemap-button" onclick="viewSitemap()">
-                    <i class="fas fa-sitemap"></i> View Sitemap
-                </button>
-                <button class="sitemap-button" onclick="testRobotsTxt()">
-                    <i class="fas fa-robot"></i> Test Robots.txt
-                </button>
-            </div>
-
             <div class="seo-content">
                 <h1>Productivity Tracker - Free Time Analytics Tool</h1>
                 
@@ -1499,15 +1456,6 @@
                 
                 timeDistributionEl.appendChild(timeSlot);
             }
-        }
-        
-        // Sitemap functions
-        function viewSitemap() {
-            window.open('/sitemap.xml', '_blank');
-        }
-        
-        function testRobotsTxt() {
-            window.open('/robots.txt', '_blank');
         }
         
         // Initialize the app
