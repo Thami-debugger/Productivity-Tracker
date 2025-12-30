@@ -3,46 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productivity Tracker - Analyze Your Daily Task Completion Patterns & Habits</title>
-    <meta name="description" content="Free online productivity tracker with time analytics. Monitor when you complete tasks, build better habits, and optimize your daily schedule for maximum efficiency. No registration required.">
-    <meta name="keywords" content="productivity tracker, task management, time analytics, habit tracking, daily schedule, task completion patterns, free productivity tool, time management app">
+    
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex">
+
+    <title>Productivity Tracker - Private Dashboard</title>
+    
+    <meta name="description" content="Personal productivity tracker for daily task completion patterns.">
     <meta name="author" content="Productivity Tracker">
-    
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="lpgOqVca5sBG-p8FFpw3YaXktCgH-q9zUnu0KrsIxto" />
-    <meta name="google-site-verification" content="0lcnmrrt4Dyiydc7s5Ns-XAYgtdgiTNBVd3IblZ7TCc" />
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Productivity Tracker - Analyze Your Daily Task Patterns">
-    <meta property="og:description" content="Free tool to track when you complete tasks and optimize your daily productivity schedule">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://productivity-tracker-vd37.onrender.com">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Productivity Tracker - Time Analytics">
-    <meta name="twitter:description" content="Free tool to analyze your task completion patterns">
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Productivity Tracker with Time Analytics",
-      "description": "Free productivity tracker to monitor your task completion patterns, build better habits, and improve daily efficiency",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Any",
-      "permissions": "browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Productivity Tracker"
-      }
-    }
-    </script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -73,7 +41,7 @@
             background-color: #f5f7fb;
             color: var(--dark);
             line-height: 1.6;
-            padding-bottom: 80px; /* Space for mobile nav */
+            padding-bottom: 80px;
         }
         
         .container {
@@ -82,7 +50,6 @@
             padding: 15px;
         }
         
-        /* Mobile-First Header */
         header {
             text-align: center;
             margin-bottom: 20px;
@@ -119,18 +86,6 @@
             position: relative;
             margin: 0 auto;
             line-height: 1.4;
-        }
-        
-        .google-verified {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #f1f8ff;
-            color: #1a73e8;
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            margin-top: 8px;
         }
         
         /* Mobile Navigation */
@@ -173,7 +128,6 @@
             font-size: 1.1rem;
         }
         
-        /* Main Content Sections */
         .content-section {
             display: none;
             animation: fadeIn 0.3s ease-in;
@@ -210,7 +164,6 @@
             margin-right: 8px;
         }
         
-        /* Mobile-Optimized Task Input */
         .task-input-container {
             display: flex;
             flex-direction: column;
@@ -238,13 +191,8 @@
             padding: 12px 15px;
             border: 2px solid var(--light-gray);
             border-radius: 8px;
-            font-size: 16px; /* Prevents zoom on iOS */
+            font-size: 16px;
             outline: none;
-            transition: border-color 0.3s;
-        }
-        
-        .task-input:focus {
-            border-color: var(--primary);
         }
         
         .category-select, .priority-select {
@@ -265,19 +213,28 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-size: 16px;
+        }
+
+        .suggested-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .suggested-task {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            background: #fff;
+            border: 1px solid var(--light-gray);
+            border-radius: 15px;
+            cursor: pointer;
         }
         
-        .add-task-btn:hover {
-            background: var(--secondary);
-        }
-        
-        /* Mobile-Optimized Task Filters */
         .task-filters {
             display: flex;
             gap: 8px;
@@ -292,12 +249,7 @@
             border: none;
             border-radius: 16px;
             cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
             font-size: 0.85rem;
-            white-space: nowrap;
         }
         
         .filter-btn.active {
@@ -305,12 +257,10 @@
             color: white;
         }
         
-        /* Mobile Task List */
         .task-list {
             list-style: none;
             max-height: 50vh;
             overflow-y: auto;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         }
         
         .task-item {
@@ -318,141 +268,18 @@
             align-items: flex-start;
             padding: 12px;
             border-bottom: 1px solid var(--light-gray);
-            transition: background 0.3s;
             border-left: 4px solid transparent;
             gap: 10px;
         }
         
-        .task-item.health {
-            border-left-color: var(--health);
-        }
-        
-        .task-item.learning {
-            border-left-color: var(--learning);
-        }
-        
-        .task-item.mindfulness {
-            border-left-color: var(--mindful);
-        }
-        
-        .task-item.relationships {
-            border-left-color: var(--relationships);
-        }
-        
-        .task-item.productivity {
-            border-left-color: var(--primary);
-        }
-        
-        .task-item:hover {
-            background: #f8f9fa;
-        }
-        
         .task-checkbox {
-            margin-top: 2px;
             width: 20px;
             height: 20px;
             cursor: pointer;
-            flex-shrink: 0;
         }
         
-        .task-content {
-            flex: 1;
-            min-width: 0; /* Prevents overflow */
-        }
+        .task-content { flex: 1; }
         
-        .task-title {
-            font-weight: 500;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        
-        .task-category {
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 8px;
-            background: var(--light-gray);
-            white-space: nowrap;
-        }
-        
-        .task-category.health {
-            background: rgba(42, 157, 143, 0.2);
-            color: var(--health);
-        }
-        
-        .task-category.learning {
-            background: rgba(233, 196, 106, 0.2);
-            color: #b68c1a;
-        }
-        
-        .task-category.mindfulness {
-            background: rgba(114, 9, 183, 0.2);
-            color: var(--mindful);
-        }
-        
-        .task-category.relationships {
-            background: rgba(231, 111, 81, 0.2);
-            color: var(--relationships);
-        }
-        
-        .task-category.productivity {
-            background: rgba(67, 97, 238, 0.2);
-            color: var(--primary);
-        }
-        
-        .task-meta {
-            font-size: 0.75rem;
-            color: var(--gray);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        
-        .task-priority {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-        
-        .priority-high {
-            color: var(--danger);
-        }
-        
-        .priority-medium {
-            color: var(--warning);
-        }
-        
-        .priority-low {
-            color: var(--success);
-        }
-        
-        .task-actions {
-            display: flex;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-        
-        .task-action-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--gray);
-            transition: color 0.3s;
-            padding: 4px;
-        }
-        
-        .task-action-btn:hover {
-            color: var(--primary);
-        }
-        
-        .completed .task-title {
-            text-decoration: line-through;
-            color: var(--gray);
-        }
-        
-        /* Mobile-Optimized Analytics */
         .analytics-overview {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -465,268 +292,23 @@
             padding: 15px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        .chart-container {
-            height: 150px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .time-distribution {
-            margin-top: 20px;
-        }
-        
-        .time-slot {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        
-        .time-label {
-            width: 70px;
-            font-size: 0.8rem;
-        }
-        
-        .time-bar {
-            flex: 1;
-            height: 16px;
-            background: var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .time-fill {
-            height: 100%;
-            background: var(--success);
-            border-radius: 8px;
-        }
-        
-        .time-count {
-            margin-left: 8px;
-            font-size: 0.8rem;
-            color: var(--gray);
-            min-width: 20px;
-        }
-        
-        /* Mobile Time Patterns */
-        .time-patterns-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-        
-        @media (min-width: 768px) {
-            .time-patterns-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
+        .chart-container { height: 150px; margin-bottom: 20px; position: relative; }
+
         .time-pattern-card {
             background: var(--light);
             border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 10px;
         }
-        
-        .pattern-title {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .pattern-chart {
-            height: 120px;
-            margin: 12px 0;
-        }
-        
-        .pattern-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-        }
-        
-        .pattern-stat {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .pattern-stat-value {
-            font-size: 1rem;
-            font-weight: bold;
-        }
-        
-        .pattern-stat-label {
-            font-size: 0.7rem;
-            color: var(--gray);
-        }
-        
-        /* Empty States */
-        .empty-state {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--gray);
-        }
-        
-        .empty-state i {
-            font-size: 2.5rem;
-            margin-bottom: 12px;
-            opacity: 0.5;
-        }
-        
-        .motivational-quote {
-            text-align: center;
-            font-style: italic;
-            margin: 15px 0;
-            padding: 12px;
-            background: rgba(67, 97, 238, 0.1);
-            border-radius: 8px;
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-        
-        /* SEO Content */
-        .seo-content {
-            margin-top: 30px;
-            padding: 20px 15px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            font-size: 0.9rem;
-        }
-        
-        .seo-content h2 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-        }
-        
-        .seo-content h3 {
-            color: var(--secondary);
-            margin: 15px 0 8px 0;
-            font-size: 1.1rem;
-        }
-        
-        .seo-content p {
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-        
-        .seo-content ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-        
-        .seo-content li {
-            margin-bottom: 6px;
-        }
-        
-        .feature-comparison {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .feature-comparison ul {
-            list-style: none;
-            margin-left: 0;
-        }
-        
-        /* Sitemap Section */
-        .sitemap-section {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        
-        .sitemap-button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .sitemap-button:hover {
-            background: var(--secondary);
-        }
-        
-        /* Desktop Improvements */
+
         @media (min-width: 768px) {
-            body {
-                padding-bottom: 0;
-            }
-            
-            .mobile-nav {
-                display: none;
-            }
-            
-            .container {
-                padding: 20px;
-            }
-            
-            header {
-                padding: 25px;
-                margin-bottom: 30px;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .app-description {
-                font-size: 1.1rem;
-            }
-            
-            .content-section {
-                display: block;
-            }
-            
-            .app-container {
-                display: grid;
-                grid-template-columns: 1fr 1.2fr;
-                gap: 25px;
-            }
-            
-            .time-patterns-section {
-                grid-column: 1 / -1;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            .time-patterns-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            .time-patterns-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .mobile-nav { display: none; }
+            body { padding-bottom: 0; }
         }
     </style>
 </head>
@@ -734,14 +316,9 @@
     <div class="container">
         <header>
             <h1>Productivity Tracker</h1>
-            <p class="app-description">Track tasks, analyze patterns, optimize your schedule</p>
-            <div class="google-verified">
-                <i class="fab fa-google"></i>
-                Google Verified
-            </div>
+            <p class="app-description">Track tasks, analyze patterns, optimize your schedule (Private)</p>
         </header>
         
-        <!-- Mobile Navigation -->
         <nav class="mobile-nav">
             <button class="nav-btn active" data-section="tasks">
                 <i class="fas fa-tasks"></i>
@@ -761,759 +338,123 @@
             </button>
         </nav>
         
-        <!-- Main Content Sections -->
         <div class="content-section active" id="tasks-section">
             <section class="task-section">
                 <h2 class="section-title"><i class="fas fa-tasks"></i> My Tasks</h2>
-                
                 <div class="task-input-container">
                     <div class="task-input-row">
                         <input type="text" id="taskInput" class="task-input" placeholder="Add a new task...">
                         <select id="categorySelect" class="category-select">
                             <option value="productivity">Productivity</option>
-                            <option value="health">Health & Fitness</option>
+                            <option value="health">Health</option>
                             <option value="learning">Learning</option>
                             <option value="mindfulness">Mindfulness</option>
-                            <option value="relationships">Relationships</option>
-                        </select>
-                        <select id="prioritySelect" class="priority-select">
-                            <option value="low">Low Priority</option>
-                            <option value="medium">Medium Priority</option>
-                            <option value="high">High Priority</option>
                         </select>
                     </div>
-                    <button id="addTaskBtn" class="add-task-btn">
-                        <i class="fas fa-plus"></i> Add Task
-                    </button>
-                    
-                    <div class="suggested-tasks">
-                        <div class="suggested-title">Quick Add:</div>
-                        <div class="suggested-list">
-                            <div class="suggested-task" data-task="Meditate for 10 minutes" data-category="mindfulness">Meditate</div>
-                            <div class="suggested-task" data-task="Read for 30 minutes" data-category="learning">Read</div>
-                            <div class="suggested-task" data-task="Exercise for 20 minutes" data-category="health">Exercise</div>
-                            <div class="suggested-task" data-task="Call a family member" data-category="relationships">Connect</div>
-                            <div class="suggested-task" data-task="Plan tomorrow's tasks" data-category="productivity">Plan</div>
-                        </div>
+                    <button id="addTaskBtn" class="add-task-btn"><i class="fas fa-plus"></i> Add Task</button>
+                    <div class="suggested-list">
+                        <div class="suggested-task" data-task="Meditate" data-category="mindfulness">Meditate</div>
+                        <div class="suggested-task" data-task="Read" data-category="learning">Read</div>
+                        <div class="suggested-task" data-task="Workout" data-category="health">Workout</div>
                     </div>
                 </div>
-                
-                <div class="task-filters">
-                    <button class="filter-btn active" data-filter="all">
-                        <i class="fas fa-layer-group"></i> All
-                    </button>
-                    <button class="filter-btn" data-filter="active">
-                        <i class="fas fa-circle"></i> Active
-                    </button>
-                    <button class="filter-btn" data-filter="completed">
-                        <i class="fas fa-check-circle"></i> Done
-                    </button>
-                    <button class="filter-btn" data-filter="health">
-                        <i class="fas fa-heartbeat"></i> Health
-                    </button>
-                    <button class="filter-btn" data-filter="learning">
-                        <i class="fas fa-graduation-cap"></i> Learn
-                    </button>
-                </div>
-                
-                <ul class="task-list" id="taskList">
-                    <!-- Tasks will be added here dynamically -->
-                </ul>
+                <ul class="task-list" id="taskList"></ul>
             </section>
         </div>
         
         <div class="content-section" id="analytics-section">
             <section class="analytics-section">
                 <h2 class="section-title"><i class="fas fa-chart-line"></i> Analytics</h2>
-                
                 <div class="analytics-overview">
-                    <div class="stat-card">
-                        <div class="stat-value" id="totalTasks">0</div>
-                        <div class="stat-label">Total Tasks</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="completedTasks">0</div>
-                        <div class="stat-label">Completed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="completionRate">0%</div>
-                        <div class="stat-label">Completion Rate</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value" id="streakCount">0</div>
-                        <div class="stat-label">Current Streak</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-value" id="totalTasks">0</div><div class="stat-label">Total</div></div>
+                    <div class="stat-card"><div class="stat-value" id="completedTasks">0</div><div class="stat-label">Done</div></div>
                 </div>
-                
-                <div class="motivational-quote" id="motivationalQuote">
-                    "The secret of getting ahead is getting started." - Mark Twain
-                </div>
-                
-                <h3 class="section-title"><i class="fas fa-chart-pie"></i> Categories</h3>
-                <div class="chart-container" id="categoryChart">
-                    <!-- Category chart will be rendered here -->
-                </div>
-                
-                <h3 class="section-title"><i class="fas fa-clock"></i> Daily Patterns</h3>
-                <div class="time-distribution" id="timeDistribution">
-                    <!-- Time distribution will be added here -->
-                </div>
+                <div class="chart-container" id="categoryChart"></div>
             </section>
         </div>
-        
+
         <div class="content-section" id="patterns-section">
-            <section class="time-patterns-section">
-                <h2 class="section-title"><i class="fas fa-chart-bar"></i> Time Analysis</h2>
-                
+             <section class="time-patterns-section">
+                <h2 class="section-title"><i class="fas fa-clock"></i> Time Patterns</h2>
                 <div class="time-patterns-grid">
-                    <div class="time-pattern-card">
-                        <h3 class="pattern-title"><i class="fas fa-brain"></i> Mindfulness</h3>
-                        <div class="pattern-chart" id="mindfulnessChart">
-                            <!-- Chart will be rendered here -->
-                        </div>
-                        <div class="pattern-stats">
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="mindfulnessAvgTime">--:--</div>
-                                <div class="pattern-stat-label">Avg. Time</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="mindfulnessPeakHour">--:--</div>
-                                <div class="pattern-stat-label">Peak Hour</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="mindfulnessCount">0</div>
-                                <div class="pattern-stat-label">Completed</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-pattern-card">
-                        <h3 class="pattern-title"><i class="fas fa-book"></i> Learning</h3>
-                        <div class="pattern-chart" id="learningChart">
-                            <!-- Chart will be rendered here -->
-                        </div>
-                        <div class="pattern-stats">
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="learningAvgTime">--:--</div>
-                                <div class="pattern-stat-label">Avg. Time</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="learningPeakHour">--:--</div>
-                                <div class="pattern-stat-label">Peak Hour</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="learningCount">0</div>
-                                <div class="pattern-stat-label">Completed</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-pattern-card">
-                        <h3 class="pattern-title"><i class="fas fa-heartbeat"></i> Health</h3>
-                        <div class="pattern-chart" id="healthChart">
-                            <!-- Chart will be rendered here -->
-                        </div>
-                        <div class="pattern-stats">
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="healthAvgTime">--:--</div>
-                                <div class="pattern-stat-label">Avg. Time</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="healthPeakHour">--:--</div>
-                                <div class="pattern-stat-label">Peak Hour</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="healthCount">0</div>
-                                <div class="pattern-stat-label">Completed</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="time-pattern-card">
-                        <h3 class="pattern-title"><i class="fas fa-briefcase"></i> Productivity</h3>
-                        <div class="pattern-chart" id="productivityChart">
-                            <!-- Chart will be rendered here -->
-                        </div>
-                        <div class="pattern-stats">
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="productivityAvgTime">--:--</div>
-                                <div class="pattern-stat-label">Avg. Time</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="productivityPeakHour">--:--</div>
-                                <div class="pattern-stat-label">Peak Hour</div>
-                            </div>
-                            <div class="pattern-stat">
-                                <div class="pattern-stat-value" id="productivityCount">0</div>
-                                <div class="pattern-stat-label">Completed</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="time-pattern-card"><h3>Mindfulness</h3><div id="mindfulnessChart"></div></div>
+                    <div class="time-pattern-card"><h3>Health</h3><div id="healthChart"></div></div>
                 </div>
-            </section>
+             </section>
         </div>
         
         <div class="content-section" id="info-section">
-            <div class="sitemap-section">
-                <h2>Google Sitemap Ready</h2>
-                <p>Your sitemap has been generated and is ready for Google Search Console.</p>
-                <button class="sitemap-button" onclick="viewSitemap()">
-                    <i class="fas fa-sitemap"></i> View Sitemap
-                </button>
-                <button class="sitemap-button" onclick="testRobotsTxt()">
-                    <i class="fas fa-robot"></i> Test Robots.txt
-                </button>
-            </div>
-
-            <div class="seo-content">
-                <h1>Productivity Tracker - Free Time Analytics Tool</h1>
-                
-                <h2>Optimize Your Daily Schedule</h2>
-                <p>This free productivity tracker helps you understand exactly when you complete different types of tasks throughout your day.</p>
-                
-                <h3>Key Features</h3>
-                <ul>
-                    <li><strong>Time Analytics</strong> - See when you complete tasks</li>
-                    <li><strong>Category Tracking</strong> - Monitor different task types</li>
-                    <li><strong>Completion Patterns</strong> - Identify productive hours</li>
-                    <li><strong>Habit Building</strong> - Track streaks and routines</li>
-                    <li><strong>No Registration</strong> - Start using immediately</li>
-                    <li><strong>Free Forever</strong> - Completely free tool</li>
-                </ul>
-                
-                <h3>How to Use</h3>
-                <p>Simply add your daily tasks, categorize them, and mark them as completed when finished. Our analytics engine will automatically track completion times and generate insights.</p>
-                
-                <div class="feature-comparison">
-                    <h3>Free Alternative to Expensive Apps</h3>
-                    <p>Unlike many productivity tools that require monthly subscriptions, our time analytics tracker is completely free.</p>
-                    <h4>How We Compare</h4>
-                    <ul>
-                        <li>✅ Completely free - no subscriptions</li>
-                        <li>✅ No registration required</li>
-                        <li>✅ Advanced time analytics</li>
-                        <li>✅ Works on all devices</li>
-                        <li>✅ Data stays on your device</li>
-                        <li>✅ No ads or tracking</li>
-                    </ul>
-                </div>
-                
-                <h3>Get Started Today</h3>
-                <p>Start tracking your tasks right now. No download required, no account creation needed.</p>
+            <div class="task-section">
+                <h2>Privacy Dashboard</h2>
+                <p>This application is configured for privacy. It is hidden from Google Search and does not use tracking cookies.</p>
+                <br>
+                <p><strong>Status:</strong> Search Indexing Disabled (NoIndex active)</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Mobile Navigation
+        // Tab Navigation
         const navBtns = document.querySelectorAll('.nav-btn');
         const contentSections = document.querySelectorAll('.content-section');
         
         navBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons and sections
                 navBtns.forEach(b => b.classList.remove('active'));
-                contentSections.forEach(section => section.classList.remove('active'));
-                
-                // Add active class to clicked button
+                contentSections.forEach(s => s.classList.remove('active'));
                 btn.classList.add('active');
-                
-                // Show corresponding section
-                const sectionId = btn.dataset.section + '-section';
-                document.getElementById(sectionId).classList.add('active');
+                document.getElementById(btn.dataset.section + '-section').classList.add('active');
             });
         });
 
-        // Your existing JavaScript code for the app functionality
-        // (Keep all the existing task management, analytics, etc. code here)
-        // Task management
+        // Core Task Functionality
         let tasks = JSON.parse(localStorage.getItem('productivityTasks')) || [];
-        let currentFilter = 'all';
-        
-        // Motivational quotes
-        const quotes = [
-            "The only way to do great work is to love what you do. - Steve Jobs",
-            "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
-            "The future depends on what you do today. - Mahatma Gandhi",
-            "It's not whether you get knocked down, it's whether you get up. - Vince Lombardi",
-            "The secret of getting ahead is getting started. - Mark Twain",
-            "Don't let yesterday take up too much of today. - Will Rogers",
-            "You are never too old to set another goal or to dream a new dream. - C.S. Lewis",
-            "The way to get started is to quit talking and begin doing. - Walt Disney",
-            "Your self-worth is determined by you. You don't have to depend on someone telling you who you are. - Beyoncé",
-            "Believe you can and you're halfway there. - Theodore Roosevelt"
-        ];
-        
-        // DOM Elements
-        const taskInput = document.getElementById('taskInput');
-        const categorySelect = document.getElementById('categorySelect');
-        const prioritySelect = document.getElementById('prioritySelect');
-        const addTaskBtn = document.getElementById('addTaskBtn');
-        const taskList = document.getElementById('taskList');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const suggestedTasks = document.querySelectorAll('.suggested-task');
-        
-        // Analytics elements
-        const totalTasksEl = document.getElementById('totalTasks');
-        const completedTasksEl = document.getElementById('completedTasks');
-        const completionRateEl = document.getElementById('completionRate');
-        const streakCountEl = document.getElementById('streakCount');
-        const motivationalQuoteEl = document.getElementById('motivationalQuote');
-        const categoryChartEl = document.getElementById('categoryChart');
-        const timeDistributionEl = document.getElementById('timeDistribution');
-        
-        // Time pattern elements
-        const mindfulnessChartEl = document.getElementById('mindfulnessChart');
-        const learningChartEl = document.getElementById('learningChart');
-        const healthChartEl = document.getElementById('healthChart');
-        const productivityChartEl = document.getElementById('productivityChart');
-        
-        const mindfulnessAvgTimeEl = document.getElementById('mindfulnessAvgTime');
-        const mindfulnessPeakHourEl = document.getElementById('mindfulnessPeakHour');
-        const mindfulnessCountEl = document.getElementById('mindfulnessCount');
-        
-        const learningAvgTimeEl = document.getElementById('learningAvgTime');
-        const learningPeakHourEl = document.getElementById('learningPeakHour');
-        const learningCountEl = document.getElementById('learningCount');
-        
-        const healthAvgTimeEl = document.getElementById('healthAvgTime');
-        const healthPeakHourEl = document.getElementById('healthPeakHour');
-        const healthCountEl = document.getElementById('healthCount');
-        
-        const productivityAvgTimeEl = document.getElementById('productivityAvgTime');
-        const productivityPeakHourEl = document.getElementById('productivityPeakHour');
-        const productivityCountEl = document.getElementById('productivityCount');
-        
-        // Initialize the app
-        function init() {
-            renderTasks();
-            updateAnalytics();
-            updateTimePatterns();
-            setupEventListeners();
-            showRandomQuote();
-        }
-        
-        // Set up event listeners
-        function setupEventListeners() {
-            addTaskBtn.addEventListener('click', addTask);
-            taskInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') addTask();
-            });
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    renderTasks();
-                });
-            });
-            
-            suggestedTasks.forEach(task => {
-                task.addEventListener('click', () => {
-                    taskInput.value = task.dataset.task;
-                    categorySelect.value = task.dataset.category;
-                });
-            });
-        }
-        
-        // Show random motivational quote
-        function showRandomQuote() {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            motivationalQuoteEl.textContent = quotes[randomIndex];
-        }
-        
-        // Add a new task
+
         function addTask() {
-            const title = taskInput.value.trim();
-            if (!title) return;
+            const input = document.getElementById('taskInput');
+            if (!input.value.trim()) return;
             
-            const newTask = {
+            const task = {
                 id: Date.now(),
-                title,
-                category: categorySelect.value,
-                priority: prioritySelect.value,
+                title: input.value,
+                category: document.getElementById('categorySelect').value,
                 completed: false,
-                createdAt: new Date(),
-                completedAt: null,
-                completionTime: null
+                createdAt: new Date()
             };
             
-            tasks.push(newTask);
-            saveTasks();
-            renderTasks();
-            updateAnalytics();
-            updateTimePatterns();
-            
-            taskInput.value = '';
-            taskInput.focus();
+            tasks.push(task);
+            saveAndRender();
+            input.value = '';
         }
-        
-        // Toggle task completion
+
         function toggleTask(id) {
-            const task = tasks.find(t => t.id === id);
-            if (!task) return;
-            
-            task.completed = !task.completed;
-            
-            if (task.completed) {
-                task.completedAt = new Date();
-                // Calculate completion time in minutes
-                const created = new Date(task.createdAt);
-                const completed = new Date(task.completedAt);
-                task.completionTime = Math.round((completed - created) / (1000 * 60));
-            } else {
-                task.completedAt = null;
-                task.completionTime = null;
-            }
-            
-            saveTasks();
-            renderTasks();
-            updateAnalytics();
-            updateTimePatterns();
+            tasks = tasks.map(t => t.id === id ? {...t, completed: !t.completed, completedAt: new Date()} : t);
+            saveAndRender();
         }
-        
-        // Delete a task
-        function deleteTask(id) {
-            tasks = tasks.filter(t => t.id !== id);
-            saveTasks();
-            renderTasks();
-            updateAnalytics();
-            updateTimePatterns();
-        }
-        
-        // Save tasks to localStorage
-        function saveTasks() {
+
+        function saveAndRender() {
             localStorage.setItem('productivityTasks', JSON.stringify(tasks));
+            render();
         }
-        
-        // Render tasks based on current filter
-        function renderTasks() {
-            taskList.innerHTML = '';
-            
-            let filteredTasks = tasks;
-            
-            if (currentFilter === 'active') {
-                filteredTasks = tasks.filter(t => !t.completed);
-            } else if (currentFilter === 'completed') {
-                filteredTasks = tasks.filter(t => t.completed);
-            } else if (currentFilter !== 'all') {
-                filteredTasks = tasks.filter(t => t.category === currentFilter);
-            }
-            
-            if (filteredTasks.length === 0) {
-                taskList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-clipboard-list"></i>
-                        <p>No tasks found</p>
-                        <p>Add a task or try a different filter</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            filteredTasks.forEach(task => {
-                const li = document.createElement('li');
-                li.className = `task-item ${task.completed ? 'completed' : ''} ${task.category}`;
-                
-                const createdDate = new Date(task.createdAt).toLocaleDateString();
-                let metaText = `Created: ${createdDate}`;
-                
-                if (task.completed) {
-                    const completedDate = new Date(task.completedAt).toLocaleDateString();
-                    const completedTime = new Date(task.completedAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-                    metaText += ` | Completed: ${completedDate} at ${completedTime}`;
-                    
-                    if (task.completionTime) {
-                        const hours = Math.floor(task.completionTime / 60);
-                        const minutes = task.completionTime % 60;
-                        
-                        if (hours > 0) {
-                            metaText += ` | Took: ${hours}h ${minutes}m`;
-                        } else {
-                            metaText += ` | Took: ${minutes}m`;
-                        }
-                    }
-                }
-                
-                const priorityIcons = {
-                    high: '<i class="fas fa-arrow-up"></i>',
-                    medium: '<i class="fas fa-minus"></i>',
-                    low: '<i class="fas fa-arrow-down"></i>'
-                };
-                
-                li.innerHTML = `
-                    <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''}>
+
+        function render() {
+            const list = document.getElementById('taskList');
+            list.innerHTML = tasks.map(t => `
+                <li class="task-item" style="border-left-color: var(--${t.category})">
+                    <input type="checkbox" class="task-checkbox" ${t.completed ? 'checked' : ''} onclick="toggleTask(${t.id})">
                     <div class="task-content">
-                        <div class="task-title">
-                            ${task.title}
-                            <span class="task-category ${task.category}">${task.category}</span>
-                        </div>
-                        <div class="task-meta">
-                            <span>${metaText}</span>
-                            <span class="task-priority priority-${task.priority}">
-                                ${priorityIcons[task.priority]} ${task.priority} priority
-                            </span>
-                        </div>
+                        <div style="${t.completed ? 'text-decoration: line-through; color: gray' : ''}">${t.title}</div>
+                        <small>${t.category}</small>
                     </div>
-                    <div class="task-actions">
-                        <button class="task-action-btn delete-btn" title="Delete task">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `;
-                
-                const checkbox = li.querySelector('.task-checkbox');
-                checkbox.addEventListener('change', () => toggleTask(task.id));
-                
-                const deleteBtn = li.querySelector('.delete-btn');
-                deleteBtn.addEventListener('click', () => deleteTask(task.id));
-                
-                taskList.appendChild(li);
-            });
+                </li>
+            `).join('');
+            
+            document.getElementById('totalTasks').textContent = tasks.length;
+            document.getElementById('completedTasks').textContent = tasks.filter(t => t.completed).length;
         }
-        
-        // Update analytics
-        function updateAnalytics() {
-            // Basic stats
-            const totalTasks = tasks.length;
-            const completedTasks = tasks.filter(t => t.completed).length;
-            const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
-            
-            // Calculate streak (consecutive days with at least one completed task)
-            const today = new Date().toDateString();
-            const completedDates = [...new Set(tasks
-                .filter(t => t.completed)
-                .map(t => new Date(t.completedAt).toDateString())
-            )].sort().reverse();
-            
-            let streak = 0;
-            let currentDate = new Date();
-            
-            while (completedDates.includes(currentDate.toDateString())) {
-                streak++;
-                currentDate.setDate(currentDate.getDate() - 1);
-            }
-            
-            totalTasksEl.textContent = totalTasks;
-            completedTasksEl.textContent = completedTasks;
-            completionRateEl.textContent = `${completionRate}%`;
-            streakCountEl.textContent = streak;
-            
-            // Category chart
-            const healthCount = tasks.filter(t => t.category === 'health').length;
-            const learningCount = tasks.filter(t => t.category === 'learning').length;
-            const mindfulnessCount = tasks.filter(t => t.category === 'mindfulness').length;
-            const relationshipsCount = tasks.filter(t => t.category === 'relationships').length;
-            const productivityCount = tasks.filter(t => t.category === 'productivity').length;
-            
-            renderCategoryChart({
-                health: healthCount,
-                learning: learningCount,
-                mindfulness: mindfulnessCount,
-                relationships: relationshipsCount,
-                productivity: productivityCount
-            });
-            
-            // Time distribution
-            renderTimeDistribution();
-        }
-        
-        // Update time patterns for each category
-        function updateTimePatterns() {
-            // Mindfulness tasks
-            const mindfulnessTasks = tasks.filter(t => t.category === 'mindfulness' && t.completed);
-            updateCategoryTimePatterns(mindfulnessTasks, mindfulnessChartEl, mindfulnessAvgTimeEl, mindfulnessPeakHourEl, mindfulnessCountEl, '#7209b7');
-            
-            // Learning tasks
-            const learningTasks = tasks.filter(t => t.category === 'learning' && t.completed);
-            updateCategoryTimePatterns(learningTasks, learningChartEl, learningAvgTimeEl, learningPeakHourEl, learningCountEl, '#e9c46a');
-            
-            // Health tasks
-            const healthTasks = tasks.filter(t => t.category === 'health' && t.completed);
-            updateCategoryTimePatterns(healthTasks, healthChartEl, healthAvgTimeEl, healthPeakHourEl, healthCountEl, '#2a9d8f');
-            
-            // Productivity tasks
-            const productivityTasks = tasks.filter(t => t.category === 'productivity' && t.completed);
-            updateCategoryTimePatterns(productivityTasks, productivityChartEl, productivityAvgTimeEl, productivityPeakHourEl, productivityCountEl, '#4361ee');
-        }
-        
-        // Update time patterns for a specific category
-        function updateCategoryTimePatterns(tasks, chartEl, avgTimeEl, peakHourEl, countEl, color) {
-            countEl.textContent = tasks.length;
-            
-            if (tasks.length === 0) {
-                chartEl.innerHTML = '<div class="empty-state"><p>No data yet</p></div>';
-                avgTimeEl.textContent = '--:--';
-                peakHourEl.textContent = '--:--';
-                return;
-            }
-            
-            // Calculate average completion time
-            const totalCompletionTime = tasks.reduce((sum, task) => sum + (task.completionTime || 0), 0);
-            const avgCompletionMinutes = Math.round(totalCompletionTime / tasks.length);
-            const avgHours = Math.floor(avgCompletionMinutes / 60);
-            const avgMinutes = avgCompletionMinutes % 60;
-            avgTimeEl.textContent = avgHours > 0 ? `${avgHours}h ${avgMinutes}m` : `${avgMinutes}m`;
-            
-            // Find peak completion hour
-            const hourCounts = {};
-            for (let i = 0; i < 24; i++) {
-                hourCounts[i] = 0;
-            }
-            
-            tasks.forEach(task => {
-                const hour = new Date(task.completedAt).getHours();
-                hourCounts[hour]++;
-            });
-            
-            let maxCount = 0;
-            let peakHour = 0;
-            for (let i = 0; i < 24; i++) {
-                if (hourCounts[i] > maxCount) {
-                    maxCount = hourCounts[i];
-                    peakHour = i;
-                }
-            }
-            
-            const peakHourFormatted = peakHour === 0 ? '12 AM' : 
-                                    peakHour < 12 ? `${peakHour} AM` : 
-                                    peakHour === 12 ? '12 PM' : `${peakHour-12} PM`;
-            peakHourEl.textContent = peakHourFormatted;
-            
-            // Render time pattern chart
-            const maxHourCount = Math.max(...Object.values(hourCounts), 1);
-            let chartHTML = '<div style="display: flex; height: 100%; align-items: end; gap: 2px; justify-content: center;">';
-            
-            for (let i = 0; i < 24; i++) {
-                const count = hourCounts[i];
-                const height = Math.max(10, (count / maxHourCount) * 100);
-                const hourLabel = i === 0 ? '12' : i < 12 ? `${i}` : i === 12 ? '12' : `${i-12}`;
-                const ampm = i < 12 ? 'A' : 'P';
-                
-                chartHTML += `
-                    <div style="display: flex; flex-direction: column; align-items: center; height: 100%;">
-                        <div style="
-                            width: 10px; 
-                            height: ${height}%; 
-                            background: ${color}; 
-                            border-radius: 2px;
-                            opacity: ${count > 0 ? 0.8 : 0.3};
-                        "></div>
-                        <div style="margin-top: 4px; font-size: 0.6rem; text-align: center;">${hourLabel}</div>
-                    </div>
-                `;
-            }
-            
-            chartHTML += '</div>';
-            chartEl.innerHTML = chartHTML;
-        }
-        
-        // Render category chart
-        function renderCategoryChart(categoryData) {
-            const total = Object.values(categoryData).reduce((sum, count) => sum + count, 0);
-            if (total === 0) {
-                categoryChartEl.innerHTML = '<div class="empty-state"><p>No data to display</p></div>';
-                return;
-            }
-            
-            const colors = {
-                health: '#2a9d8f',
-                learning: '#e9c46a',
-                mindfulness: '#7209b7',
-                relationships: '#e76f51',
-                productivity: '#4361ee'
-            };
-            
-            let chartHTML = '<div style="display: flex; height: 100%; align-items: end; gap: 8px; justify-content: center;">';
-            
-            Object.entries(categoryData).forEach(([category, count]) => {
-                if (count > 0) {
-                    const percentage = Math.round((count / total) * 100);
-                    const height = Math.max(20, (count / total) * 100);
-                    
-                    chartHTML += `
-                        <div style="display: flex; flex-direction: column; align-items: center; height: 100%;">
-                            <div style="
-                                width: 30px; 
-                                height: ${height}%; 
-                                background: ${colors[category]}; 
-                                border-radius: 4px;
-                                display: flex;
-                                align-items: end;
-                                justify-content: center;
-                                color: white;
-                                font-size: 0.7rem;
-                                font-weight: bold;
-                                padding: 2px;
-                            ">${percentage}%</div>
-                            <div style="margin-top: 4px; font-size: 0.7rem; text-align: center;">${category.slice(0,3)}</div>
-                        </div>
-                    `;
-                }
-            });
-            
-            chartHTML += '</div>';
-            categoryChartEl.innerHTML = chartHTML;
-        }
-        
-        // Render time distribution
-        function renderTimeDistribution() {
-            const completedTasks = tasks.filter(t => t.completed);
-            
-            // Group by hour of completion
-            const hourCounts = {};
-            for (let i = 0; i < 24; i++) {
-                hourCounts[i] = 0;
-            }
-            
-            completedTasks.forEach(task => {
-                const hour = new Date(task.completedAt).getHours();
-                hourCounts[hour]++;
-            });
-            
-            // Find max for scaling
-            const maxCount = Math.max(...Object.values(hourCounts), 1);
-            
-            // Create time distribution bars
-            timeDistributionEl.innerHTML = '';
-            
-            for (let i = 0; i < 24; i++) {
-                const count = hourCounts[i];
-                const percentage = Math.round((count / maxCount) * 100);
-                
-                const hourLabel = i === 0 ? '12A' : 
-                                 i < 12 ? `${i}A` : 
-                                 i === 12 ? '12P' : `${i-12}P`;
-                
-                const timeSlot = document.createElement('div');
-                timeSlot.className = 'time-slot';
-                
-                timeSlot.innerHTML = `
-                    <div class="time-label">${hourLabel}</div>
-                    <div class="time-bar">
-                        <div class="time-fill" style="width: ${percentage}%"></div>
-                    </div>
-                    <div class="time-count">${count}</div>
-                `;
-                
-                timeDistributionEl.appendChild(timeSlot);
-            }
-        }
-        
-        // Sitemap functions
-        function viewSitemap() {
-            window.open('/sitemap.xml', '_blank');
-        }
-        
-        function testRobotsTxt() {
-            window.open('/robots.txt', '_blank');
-        }
-        
-        // Initialize the app
-        init();
+
+        document.getElementById('addTaskBtn').addEventListener('click', addTask);
+        render();
     </script>
 </body>
-
 </html>
-
